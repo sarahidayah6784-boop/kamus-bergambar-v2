@@ -7,11 +7,8 @@ import {defineConfig} from 'vite';
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig(({ command }) => {
-  // Use '/kamus-bergambar-v2/' for GitHub Pages repository builds, or custom BASE_URL, with '/' for local dev server
-  const base = process.env.BASE_URL || (command === 'build' ? '/kamus-bergambar-v2/' : '/');
-
   return {
-    base,
+    base: command === 'build' ? '/kamus-bergambar-v2/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
