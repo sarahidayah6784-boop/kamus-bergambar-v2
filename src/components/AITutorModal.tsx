@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CikguCeriMascot } from './CikguCeriMascot';
 import { AgeGroup } from '../types';
 import { soundManager } from '../utils/audio';
+import { getLocalTutorReply } from '../utils/aiFallback';
 import { X, Send, Sparkles, Volume2, MessageSquare } from 'lucide-react';
 
 interface AITutorModalProps {
@@ -50,19 +51,34 @@ export const AITutorModal: React.FC<AITutorModalProps> = ({
     setLoading(true);
 
     try {
+      // Try backend if available (AI Studio / Express) with a short timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
+
       const res = await fetch('/api/ai/ask-cikgu', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: query, ageGroup }),
-      });
-      const data = await res.json();
-      const replyText = data.reply || 'Wah, seronoknya belajar bersama kamu! Hoot-hoot! 🦉⭐';
+        signal: controller.signal,
+      }).catch(() => null);
+
+      clearTimeout(timeoutId);
+
+      let replyText = '';
+      if (res && res.ok) {
+        const data = await res.json().catch(() => null);
+        replyText = data?.reply || '';
+      }
+
+      // If backend did not reply or returned non-ok (GitHub Pages static environment)
+      if (!replyText) {
+        replyText = getLocalTutorReply(query, ageGroup);
+      }
 
       setMessages((prev) => [...prev, { sender: 'cikgu', text: replyText }]);
       soundManager.speakMalay(replyText);
     } catch (err) {
-      console.error(err);
-      const fallbackReply = 'Cikgu Ceri sentiasa ada untuk kamu! Bahasa Melayu itu mudah dan indah! 🦉✨';
+      const fallbackReply = getLocalTutorReply(query, ageGroup);
       setMessages((prev) => [...prev, { sender: 'cikgu', text: fallbackReply }]);
       soundManager.speakMalay(fallbackReply);
     } finally {

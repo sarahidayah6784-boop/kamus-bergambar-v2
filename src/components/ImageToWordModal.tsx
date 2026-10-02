@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { soundManager } from '../utils/audio';
 import { AgeGroup } from '../types';
+import { getLocalObjectResult } from '../utils/aiFallback';
 import confetti from 'canvas-confetti';
 import { Camera, Upload, X, Sparkles, Volume2, Image as ImageIcon } from 'lucide-react';
 
@@ -48,7 +49,7 @@ export const ImageToWordModal: React.FC<ImageToWordModalProps> = ({
     reader.onload = () => {
       const base64 = reader.result as string;
       setSelectedImage(base64);
-      analyzeImage(base64);
+      analyzeImage(base64, file.name);
     };
     reader.readAsDataURL(file);
   };
@@ -70,38 +71,48 @@ export const ImageToWordModal: React.FC<ImageToWordModalProps> = ({
     }
     const dataUrl = canvas.toDataURL('image/jpeg');
     setSelectedImage(dataUrl);
-    analyzeImage(dataUrl);
+    analyzeImage(dataUrl, sample.name);
   };
 
-  const analyzeImage = async (base64Data: string) => {
+  const analyzeImage = async (base64Data: string, sampleHint?: string) => {
     setAnalyzing(true);
     setResult(null);
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
+
       const res = await fetch('/api/ai/identify-object', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ imageBase64: base64Data, ageGroup }),
-      });
-      const data = await res.json();
-      setResult(data);
+        signal: controller.signal,
+      }).catch(() => null);
+
+      clearTimeout(timeoutId);
+
+      let finalResult = null;
+      if (res && res.ok) {
+        finalResult = await res.json().catch(() => null);
+      }
+
+      // If backend is not available (GitHub Pages static environment)
+      if (!finalResult || !finalResult.word) {
+        finalResult = getLocalObjectResult(sampleHint);
+      }
+
+      setResult(finalResult);
       soundManager.playCorrect();
       try {
         confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
       } catch (e) {}
-      if (data.word) {
-        soundManager.speakMalay(`Ini ialah ${data.word}! ${data.meaning}`);
+      if (finalResult.word) {
+        soundManager.speakMalay(`Ini ialah ${finalResult.word}! ${finalResult.meaning}`);
       }
     } catch (err) {
-      console.error(err);
-      setResult({
-        word: 'Sahabat Ceria',
-        category: 'Perkataan Harian',
-        syllables: ['Sa', 'ha', 'bat'],
-        meaning: 'Objek yang comel dan bermakna untuk kita pelajari bersama!',
-        exampleSentence: 'Cikgu Ceri suka melihat gambar ini.',
-        cheer: 'Wah, gambar yang sangat cantik! Teruskan meneroka dunia! 🦉⭐',
-      });
+      const fallback = getLocalObjectResult(sampleHint);
+      setResult(fallback);
+      soundManager.speakMalay(`Ini ialah ${fallback.word}!`);
     } finally {
       setAnalyzing(false);
     }
