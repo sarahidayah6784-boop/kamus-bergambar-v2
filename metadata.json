@@ -1,0 +1,6 @@
+{
+  "name": "Kamus Ceria AI",
+  "description": "Aplikasi pembelajaran digital kanak-kanak interaktif dengan kamus bergambar, permainan kosa kata, audio sebutan, AI tutor Cikgu Ceri, kuiz, dan dashboard ibu bapa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

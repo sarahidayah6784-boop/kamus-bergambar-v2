@@ -1,0 +1,1476 @@
+import { WordItem } from '../types';
+
+export const INITIAL_WORDS: WordItem[] = [
+  // 1. HAIWAN
+  {
+    id: 'kucing',
+    word: 'Kucing',
+    category: 'haiwan',
+    level: 1,
+    syllables: ['Ku', 'cing'],
+    meaning: 'Haiwan jinak berbulu lembut yang suka mengiau "meow".',
+    exampleSentence: 'Kucing comel itu sedang tidur di atas sofa.',
+    image: '🐱',
+    pronunciation: 'ku-cing',
+    synonym: ['Si Comel', 'Kucing Peliharaan'],
+    antonym: [],
+    partOfSpeech: 'Kata Nama',
+    funFact: 'Kucing boleh mendengar bunyi yang sangat halus!'
+  },
+  {
+    id: 'gajah',
+    word: 'Gajah',
+    category: 'haiwan',
+    level: 2,
+    syllables: ['Ga', 'jah'],
+    meaning: 'Haiwan darat paling besar yang mempunyai belalai panjang dan gading.',
+    exampleSentence: 'Gajah menyembur air menggunakan belalainya yang panjang.',
+    image: '🐘',
+    pronunciation: 'ga-jah',
+    synonym: ['Binatang Berkaki Empat'],
+    antonym: [],
+    partOfSpeech: 'Kata Nama',
+    funFact: 'Belalai gajah mempunyai lebih 40,000 otot!'
+  },
+  {
+    id: 'arnab',
+    word: 'Arnab',
+    category: 'haiwan',
+    level: 1,
+    syllables: ['Ar', 'nab'],
+    meaning: 'Haiwan comel bertelinga panjang yang suka makan lobak merah.',
+    exampleSentence: 'Arnab melompat-lompat dengan gembira di padang rumput.',
+    image: '🐰',
+    pronunciation: 'ar-nab',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'singa',
+    word: 'Singa',
+    category: 'haiwan',
+    level: 2,
+    syllables: ['Si', 'nga'],
+    meaning: 'Raja rimba yang gagah dan mempunyai ngauman yang kuat.',
+    exampleSentence: 'Singa jantan mempunyai bulu lebat di keliling lehernya.',
+    image: '🦁',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'harimau',
+    word: 'Harimau',
+    category: 'haiwan',
+    level: 2,
+    syllables: ['Ha', 'ri', 'mau'],
+    meaning: 'Haiwan belang yang tangkas dan menjadi lambang keberanian Malaysia.',
+    exampleSentence: 'Harimau Malaya menjaga habitat hutan dengan megah.',
+    image: '🐯',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'rama-rama',
+    word: 'Rama-rama',
+    category: 'haiwan',
+    level: 1,
+    syllables: ['Ra', 'ma', 'ra', 'ma'],
+    meaning: 'Serangga bersayap warna-warni yang suka menghisap madu bunga.',
+    exampleSentence: 'Rama-rama hinggap di atas sekuntum bunga mawar yang mekar.',
+    image: '🦋',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'kuda',
+    word: 'Kuda',
+    category: 'haiwan',
+    level: 1,
+    syllables: ['Ku', 'da'],
+    meaning: 'Haiwan tangkas yang boleh berlari laju dan ditunggangi manusia.',
+    exampleSentence: 'Pak Mat menunggang kuda coklat merentasi ladang luas.',
+    image: '🐴',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'burung',
+    word: 'Burung',
+    category: 'haiwan',
+    level: 1,
+    syllables: ['Bu', 'rung'],
+    meaning: 'Haiwan berkepak dan berbulu pelepah yang boleh terbang tinggi.',
+    exampleSentence: 'Burung berkicau merdu pada waktu pagi yang tenang.',
+    image: '🐦',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'penyu',
+    word: 'Penyu',
+    category: 'haiwan',
+    level: 2,
+    syllables: ['Pe', 'nyu'],
+    meaning: 'Reptilia laut berkulit keras yang mendarat di pantai untuk bertelur.',
+    exampleSentence: 'Penyu berenang tenang di dasar laut kepulauan Terengganu.',
+    image: '🐢',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'ikan',
+    word: 'Ikan',
+    category: 'haiwan',
+    level: 1,
+    syllables: ['I', 'kan'],
+    meaning: 'Haiwan bernafas melalui insang dan berenang di dalam air.',
+    exampleSentence: 'Ikan emas berenang riang di dalam akuarium kaca.',
+    image: '🐟',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'lebah',
+    word: 'Lebah',
+    category: 'haiwan',
+    level: 2,
+    syllables: ['Le', 'bah'],
+    meaning: 'Serangga rajin yang menghasilkan madu manis berkhasiat.',
+    exampleSentence: 'Lebah berterbangan mengumpul nektar manis dari taman bunga.',
+    image: '🐝',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'zirafah',
+    word: 'Zirafah',
+    category: 'haiwan',
+    level: 2,
+    syllables: ['Zi', 'ra', 'fah'],
+    meaning: 'Haiwan tertinggi di dunia yang berleher panjang bercorak tompok.',
+    exampleSentence: 'Zirafah memakan pucuk daun segar di puncak pokok yang tinggi.',
+    image: '🦒',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'ungka',
+    word: 'Ungka',
+    category: 'haiwan',
+    level: 3,
+    syllables: ['Ung', 'ka'],
+    meaning: 'Spesies mawas berbulu hitam atau kelabu yang tangkas bergayut di dahan pokok hutan.',
+    exampleSentence: 'Ungka bergayut dari satu dahan ke dahan lain sambil mengeluarkan bunyi siulan nyaring.',
+    image: '🐒',
+    synonym: ['Mawas', 'Kera Hutan'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'kancil',
+    word: 'Kancil',
+    category: 'haiwan',
+    level: 2,
+    syllables: ['Kan', 'cil'],
+    meaning: 'Haiwan berkuku kecil yang terkenal dengan kecerdikan akal dalam cerita rakyat.',
+    exampleSentence: 'Sang Kancil berjaya menyeberangi sungai dengan mengira buaya-buaya yang lapar.',
+    image: '🦌',
+    synonym: ['Pelanduk'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'helang',
+    word: 'Helang',
+    category: 'haiwan',
+    level: 3,
+    syllables: ['He', 'lang'],
+    meaning: 'Burung pemangsa berparuh tajam dengan penglihatan tajam dari angkasa.',
+    exampleSentence: 'Helang meluncur megah di langit Pulau Langkawi.',
+    image: '🦅',
+    partOfSpeech: 'Kata Nama'
+  },
+
+  // 2. MAKANAN & MINUMAN
+  {
+    id: 'epal',
+    word: 'Epal',
+    category: 'makanan',
+    level: 1,
+    syllables: ['E', 'pal'],
+    meaning: 'Buah bulat berwarna merah atau hijau yang manis dan rangup.',
+    exampleSentence: 'Adik makan sebiji epal merah yang manis setiap pagi.',
+    image: '🍎',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'pisang',
+    word: 'Pisang',
+    category: 'makanan',
+    level: 1,
+    syllables: ['Pi', 'sang'],
+    meaning: 'Buah berkulit kuning yang kaya dengan kalium dan tenaga.',
+    exampleSentence: 'Ibu menyediakan cucur pisang yang enak untuk minum petang.',
+    image: '🍌',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'nasi-lemak',
+    word: 'Nasi Lemak',
+    category: 'makanan',
+    level: 2,
+    syllables: ['Na', 'si', 'Le', 'mak'],
+    meaning: 'Hidangan tradisi Malaysia yang dimasak bersama santan, sambal, dan kacang.',
+    exampleSentence: 'Kami sekeluarga bersarapan nasi lemak beraroma daun pandan.',
+    image: '🍙',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'roti',
+    word: 'Roti',
+    category: 'makanan',
+    level: 1,
+    syllables: ['Ro', 'ti'],
+    meaning: 'Makanan gebu yang dibakar daripada tepung gandum dan yis.',
+    exampleSentence: 'Kakak menyapu jem strawberi di atas kepingan roti bakar.',
+    image: '🍞',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'susu',
+    word: 'Susu',
+    category: 'makanan',
+    level: 1,
+    syllables: ['Su', 'su'],
+    meaning: 'Minuman berkhasiat putih yang menguatkan gigi dan tulang anak-anak.',
+    exampleSentence: 'Minum segelas susu segar sebelum tidur sangat baik untuk kesihatan.',
+    image: '🥛',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'tembikai',
+    word: 'Tembikai',
+    category: 'makanan',
+    level: 2,
+    syllables: ['Tem', 'bi', 'kai'],
+    meaning: 'Buah berair manis berwarna merah dengan kulit hijau berbelang.',
+    exampleSentence: 'Jus tembikai sejuk sungguh menyegarkan tekak pada hari panas.',
+    image: '🍉',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'durian',
+    word: 'Durian',
+    category: 'makanan',
+    level: 2,
+    syllables: ['Du', 'rian'],
+    meaning: 'Raja segala buah di Malaysia yang berkulit berduri dan beraroma harum.',
+    exampleSentence: 'Ayah membawa pulang sekotak durian Musang King yang lemak manis.',
+    image: '🍈',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'lobak',
+    word: 'Lobak',
+    category: 'makanan',
+    level: 1,
+    syllables: ['Lo', 'bak'],
+    meaning: 'Sayur berakar oren yang amat baik untuk kecerahan penglihatan mata.',
+    exampleSentence: 'Ibu memasukkan potongan lobak merah ke dalam sup ayam.',
+    image: '🥕',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'madu',
+    word: 'Madu',
+    category: 'makanan',
+    level: 2,
+    syllables: ['Ma', 'du'],
+    meaning: 'Cecair pekat keemasan yang manis dihasilkan lebah daripada nektar bunga.',
+    exampleSentence: 'Madu lebah asli kaya dengan khasiat penyembuhan semula jadi.',
+    image: '🍯',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'khasiat',
+    word: 'Khasiat',
+    category: 'makanan',
+    level: 3,
+    syllables: ['Kha', 'siat'],
+    meaning: 'Manfaat atau zat berguna yang terkandung dalam makanan untuk tubuh badan.',
+    exampleSentence: 'Sayur-sayuran hijau mengandungi pelbagai vitamin dan khasiat untuk kecergasan otak.',
+    image: '🥗',
+    synonym: ['Nutrisi', 'Zat'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'lazat',
+    word: 'Lazat',
+    category: 'makanan',
+    level: 3,
+    syllables: ['La', 'zat'],
+    meaning: 'Rasa makanan atau minuman yang sangat sedap dan menyelerakan.',
+    exampleSentence: 'Masakan rendang daging nenek sungguh lazat dinikmati bersama ketupat.',
+    image: '😋',
+    synonym: ['Enak', 'Sedap'],
+    antonym: ['Hambar', 'Tawar'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+
+  // 3. RUMAH & BILIK
+  {
+    id: 'rumah',
+    word: 'Rumah',
+    category: 'rumah',
+    level: 1,
+    syllables: ['Ru', 'mah'],
+    meaning: 'Tempat tinggal sebuah keluarga untuk berteduh dan berkasih sayang.',
+    exampleSentence: 'Rumah saya bersih, kemas, dan sentiasa ceria.',
+    image: '🏠',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'pintu',
+    word: 'Pintu',
+    category: 'rumah',
+    level: 1,
+    syllables: ['Pin', 'tu'],
+    meaning: 'Bahagian laluan yang dibuka dan ditutup untuk masuk ke dalam rumah atau bilik.',
+    exampleSentence: 'Ali mengetuk pintu bilik sebelum melangkah masuk dengan sopan.',
+    image: '🚪',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'tingkap',
+    word: 'Tingkap',
+    category: 'rumah',
+    level: 2,
+    syllables: ['Ting', 'kap'],
+    meaning: 'Ruang pada dinding berdaun kaca atau kayu untuk angin dan cahaya keluar masuk.',
+    exampleSentence: 'Ibu membuka tingkap pada pagi hari agar udara segar mengalir masuk.',
+    image: '🪟',
+    synonym: ['Jendela'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'katil',
+    word: 'Katil',
+    category: 'rumah',
+    level: 1,
+    syllables: ['Ka', 'til'],
+    meaning: 'Perabot beralas tilam dan bantal tempat kita tidur dan berehat.',
+    exampleSentence: 'Adik mengemaskan cadar katilnya sendiri sebaik sahaja bangun tidur.',
+    image: '🛏️',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'dapur',
+    word: 'Dapur',
+    category: 'rumah',
+    level: 2,
+    syllables: ['Da', 'pur'],
+    meaning: 'Ruang khas di dalam rumah tempat memasak makanan dan mencuci pinggan.',
+    exampleSentence: 'Aroma sup yang wangi memenuhi seluruh ruang dapur.',
+    image: '🍳',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'cermin',
+    word: 'Cermin',
+    category: 'rumah',
+    level: 2,
+    syllables: ['Cer', 'min'],
+    meaning: 'Kaca licin yang memantulkan rupa paras dan bayangan wajah kita.',
+    exampleSentence: 'Siti menyikat rambutnya di hadapan cermin sebelum ke sekolah.',
+    image: '🪞',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'kediaman',
+    word: 'Kediaman',
+    category: 'rumah',
+    level: 3,
+    syllables: ['Ke', 'dia', 'man'],
+    meaning: 'Tempat duduk, bangunan atau kediaman rasmi tempat seseorang menetap.',
+    exampleSentence: 'Kawasan kediaman kami dipenuhi landskap pokok bunga yang indah dan tenteram.',
+    image: '🏡',
+    synonym: ['Tempat Tinggal', 'Rumah'],
+    partOfSpeech: 'Kata Nama'
+  },
+
+  // 4. KELUARGA
+  {
+    id: 'ibu',
+    word: 'Ibu',
+    category: 'keluarga',
+    level: 1,
+    syllables: ['I', 'bu'],
+    meaning: 'Wanita mulia yang melahirkan, menyayangi, dan menjaga kita.',
+    exampleSentence: 'Ibu memeluk adik dengan penuh kelembutan dan kasih sayang.',
+    image: '👩',
+    synonym: ['Emak', 'Mama', 'Umi'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'ayah',
+    word: 'Ayah',
+    category: 'keluarga',
+    level: 1,
+    syllables: ['A', 'yah'],
+    meaning: 'Ketua keluarga yang membimbing dan bekerja keras membesarkan anak-anak.',
+    exampleSentence: 'Ayah mengajar saya menunggang basikal di halaman rumah.',
+    image: '👨',
+    synonym: ['Bapa', 'Papa', 'Abah'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'kakak',
+    word: 'Kakak',
+    category: 'keluarga',
+    level: 1,
+    syllables: ['Ka', 'kak'],
+    meaning: 'Saudara perempuan yang lebih tua daripada kita.',
+    exampleSentence: 'Kakak membantu adik menyiapkan kerja sekolah lukisan.',
+    image: '👧',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'abang',
+    word: 'Abang',
+    category: 'keluarga',
+    level: 1,
+    syllables: ['A', 'bang'],
+    meaning: 'Saudara lelaki yang lebih tua dalam keluarga.',
+    exampleSentence: 'Abang memimpin tangan adik ketika melintas jalan raya.',
+    image: '👦',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'datuk',
+    word: 'Datuk',
+    category: 'keluarga',
+    level: 2,
+    syllables: ['Da', 'tuk'],
+    meaning: 'Bapa kepada ibu atau ayah kita yang kaya dengan nasihat bijaksana.',
+    exampleSentence: 'Datuk menceritakan kisah zaman dahulu kepada cucu-cucunya.',
+    image: '👴',
+    synonym: ['Atuk'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'nenek',
+    word: 'Nenek',
+    category: 'keluarga',
+    level: 2,
+    syllables: ['Ne', 'nek'],
+    meaning: 'Ibu kepada ibu atau ayah kita yang memasak kuih sedap.',
+    exampleSentence: 'Nenek menganyam ketupat daun palas menjelang hari raya.',
+    image: '👵',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'harmoni',
+    word: 'Harmoni',
+    category: 'keluarga',
+    level: 3,
+    syllables: ['Har', 'mo', 'ni'],
+    meaning: 'Keadaan seia sekata, mesra, damai, dan saling menghormati antara satu sama lain.',
+    exampleSentence: 'Keluarga yang harmoni sentiasa berbincang dan berkasih sayang dalam setiap perkara.',
+    image: '👨‍👩‍👧‍👦',
+    synonym: ['Sepakat', 'Damai'],
+    antonym: ['Bersengketa'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+
+  // 5. SEKOLAH & ALAT TULIS
+  {
+    id: 'buku',
+    word: 'Buku',
+    category: 'sekolah',
+    level: 1,
+    syllables: ['Bu', 'ku'],
+    meaning: 'Helaian kertas bertulis atau bergambar yang dijilid untuk dibaca.',
+    exampleSentence: 'Membaca buku membuka jendela ilmu pengetahuan kita.',
+    image: '📚',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'pensel',
+    word: 'Pensel',
+    category: 'sekolah',
+    level: 1,
+    syllables: ['Pen', 'sel'],
+    meaning: 'Alat bertulis berteras karbon untuk menulis atau melukis di kertas.',
+    exampleSentence: 'Ahmad mengasah penselnya sehingga tajam dan kemas.',
+    image: '✏️',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'pembaris',
+    word: 'Pembaris',
+    category: 'sekolah',
+    level: 2,
+    syllables: ['Pem', 'ba', 'ris'],
+    meaning: 'Alat lurus bersenggat untuk mengukur panjang dan melukis garisan lurus.',
+    exampleSentence: 'Gunakan pembaris supaya garis buku latihan nampak teratur.',
+    image: '📏',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'guru',
+    word: 'Guru',
+    category: 'sekolah',
+    level: 2,
+    syllables: ['Gu', 'ru'],
+    meaning: 'Pendidik berilmu yang mengajar dan mendidik murid-murid di sekolah.',
+    exampleSentence: 'Guru menerangkan konsep tatabahasa dengan senyuman ceria.',
+    image: '👩‍🏫',
+    synonym: ['Cikgu', 'Pendidik'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'perpustakaan',
+    word: 'Perpustakaan',
+    category: 'sekolah',
+    level: 3,
+    syllables: ['Per', 'pus', 'ta', 'ka', 'an'],
+    meaning: 'Gedung ilmu tempat mengumpul, menyimpan, dan meminjam pelbagai bahan bacaan.',
+    exampleSentence: 'Suasana di perpustakaan sangat hening dan sesuai untuk mengulang kaji pelajaran.',
+    image: '🏛️',
+    synonym: ['Khutubkhanah'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'tekun',
+    word: 'Tekun',
+    category: 'sekolah',
+    level: 3,
+    syllables: ['Te', 'kun'],
+    meaning: 'Bersungguh-sungguh dan memberi tumpuan sepenuhnya semasa belajar atau bekerja.',
+    exampleSentence: 'Murid yang tekun menelaah pelajaran pasti akan memperoleh kejayaan cemerlang.',
+    image: '🧐',
+    synonym: ['Rajin', 'Gigih'],
+    antonym: ['Leka', 'Malas'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+
+  // 6. KENDERAAN
+  {
+    id: 'kereta',
+    word: 'Kereta',
+    category: 'kenderaan',
+    level: 1,
+    syllables: ['Ke', 're', 'ta'],
+    meaning: 'Kenderaan beroda empat berenjin yang membawa penumpang di jalan raya.',
+    exampleSentence: 'Ayah memandu kereta merah kami pulang ke kampung.',
+    image: '🚗',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'basikal',
+    word: 'Basikal',
+    category: 'kenderaan',
+    level: 1,
+    syllables: ['Ba', 'si', 'kal'],
+    meaning: 'Kenderaan dua roda yang digerakkan menggunakan kayuhan pedal kaki.',
+    exampleSentence: 'Ali mengayuh basikal birunya mengelilingi taman permainan.',
+    image: '🚲',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'kapal-terbang',
+    word: 'Kapal Terbang',
+    category: 'kenderaan',
+    level: 2,
+    syllables: ['Ka', 'pal', 'Ter', 'bang'],
+    meaning: 'Kenderaan bersayap besar yang membawa manusia meluncur di awan tinggi.',
+    exampleSentence: 'Kapal terbang berlepas dari lapangan terbang menuju ke Kuching.',
+    image: '✈️',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'kereta-api',
+    word: 'Kereta Api',
+    category: 'kenderaan',
+    level: 2,
+    syllables: ['Ke', 're', 'ta', 'A', 'pi'],
+    meaning: 'Kenderaan berangkai gerabak panjang yang bergerak di atas landasan besi.',
+    exampleSentence: 'Kami menaiki kereta api elektrik laju menuju ke utara tanah air.',
+    image: '🚆',
+    synonym: ['Tren'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'roket',
+    word: 'Roket',
+    category: 'kenderaan',
+    level: 2,
+    syllables: ['Ro', 'ket'],
+    meaning: 'Kenderaan berkuasa tujahan tinggi untuk menjelajah angkasa lepas.',
+    exampleSentence: 'Roket meluncur pantas menembusi lapisan atmosfera bumi.',
+    image: '🚀',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'pengangkutan',
+    word: 'Pengangkutan',
+    category: 'kenderaan',
+    level: 3,
+    syllables: ['Peng', 'ang', 'ku', 'tan'],
+    meaning: 'Sistem atau kaedah memindahkan manusia dan barangan dari satu destinasi ke destinasi lain.',
+    exampleSentence: 'Pengangkutan awam moden mengurangkan kesesakan lalu lintas di ibu kota.',
+    image: '🚦',
+    partOfSpeech: 'Kata Nama'
+  },
+
+  // 7. ALAM SEMULA JADI
+  {
+    id: 'gunung',
+    word: 'Gunung',
+    category: 'alam',
+    level: 2,
+    syllables: ['Gu', 'nung'],
+    meaning: 'Bentuk bumi yang sangat tinggi menjulang melebihi bukit biasa.',
+    exampleSentence: 'Gunung Kinabalu merupakan puncak tertinggi yang tersergam indah di Malaysia.',
+    image: '⛰️',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'sungai',
+    word: 'Sungai',
+    category: 'alam',
+    level: 1,
+    syllables: ['Su', 'ngai'],
+    meaning: 'Aliran air tawar semula jadi yang jernih mengalir menuju ke laut.',
+    exampleSentence: 'Air sungai yang jernih mengalir tenang di celah batu-batu sungai.',
+    image: '🏞️',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'laut',
+    word: 'Laut',
+    category: 'alam',
+    level: 1,
+    syllables: ['La', 'ut'],
+    meaning: 'Kawasan air masin yang terbentang luas meliputi sebahagian besar bumi.',
+    exampleSentence: 'Ombak laut membadai pantai pasir putih dengan deruan lembut.',
+    image: '🌊',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'hutan',
+    word: 'Hutan',
+    category: 'alam',
+    level: 2,
+    syllables: ['Hu', 'tan'],
+    meaning: 'Kawasan luas yang dipenuhi pokok-pokok rimba habitat pelbagai hidupan.',
+    exampleSentence: 'Hutan hujan tropika Malaysia membekalkan oksigen bersih kepada dunia.',
+    image: '🌲',
+    synonym: ['Rimba'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'pelestarian',
+    word: 'Pelestarian',
+    category: 'alam',
+    level: 3,
+    syllables: ['Pe', 'les', 'ta', 'ri', 'an'],
+    meaning: 'Usaha mengekalkan dan memelihara alam sekitar agar tidak tercemar atau pupus.',
+    exampleSentence: 'Pelestarian alam sekitar adalah tanggungjawab setiap insan demi generasi masa depan.',
+    image: '🌱',
+    synonym: ['Pemuliharaan'],
+    partOfSpeech: 'Kata Nama'
+  },
+
+  // 8. TUMBUHAN & BUNGA
+  {
+    id: 'bunga-raya',
+    word: 'Bunga Raya',
+    category: 'tumbuhan',
+    level: 1,
+    syllables: ['Bu', 'nga', 'Ra', 'ya'],
+    meaning: 'Bunga kebangsaan Malaysia yang berwarna merah dengan lima kelopak perpaduan.',
+    exampleSentence: 'Lima kelopak bunga raya melambangkan lima prinsip Rukun Negara.',
+    image: '🌺',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'orkid',
+    word: 'Orkid',
+    category: 'tumbuhan',
+    level: 2,
+    syllables: ['Or', 'kid'],
+    meaning: 'Tumbuhan berbunga eksotik yang anggun dan beraneka warna.',
+    exampleSentence: 'Ibu menanam pasu-pasu orkid ungu di anjung halaman.',
+    image: '🪻',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'kelapa',
+    word: 'Kelapa',
+    category: 'tumbuhan',
+    level: 1,
+    syllables: ['Ke', 'la', 'pa'],
+    meaning: 'Pokok serbaguna berbatang tegak yang menghasilkan buah kelapa berair manis.',
+    exampleSentence: 'Air kelapa muda sangat enak diminum ketika cuaca panas terik.',
+    image: '🥥',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'rimbun',
+    word: 'Rimbun',
+    category: 'tumbuhan',
+    level: 3,
+    syllables: ['Rim', 'bun'],
+    meaning: 'Pokok yang berdaun banyak, tebal, dan bercabang lebat memberi teduhan nyaman.',
+    exampleSentence: 'Burung-burung membina sarang di bawah dahan pokok beringin yang rimbun.',
+    image: '🌳',
+    synonym: ['Lebat', 'Teduh'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+
+  // 9. WARNA-WARNI
+  {
+    id: 'merah',
+    word: 'Merah',
+    category: 'warna',
+    level: 1,
+    syllables: ['Me', 'rah'],
+    meaning: 'Warna terang seperti warna darah, api, cili masak, atau buah strawberi.',
+    exampleSentence: 'Baju melayu adik berwarna merah menyala.',
+    image: '🔴',
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'biru',
+    word: 'Biru',
+    category: 'warna',
+    level: 1,
+    syllables: ['Bi', 'ru'],
+    meaning: 'Warna tenang seperti warna langit cerah dan permukaan air laut.',
+    exampleSentence: 'Langit kelihatan membiru tanpa sebarang tompokan awan gelap.',
+    image: '🔵',
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'kuning',
+    word: 'Kuning',
+    category: 'warna',
+    level: 1,
+    syllables: ['Ku', 'ning'],
+    meaning: 'Warna cerah seperti sinaran mentari, kulit pisang, atau bunga matahari.',
+    exampleSentence: 'Bunga matahari yang berwarna kuning menatap ke arah matahari terbit.',
+    image: '🟡',
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'hijau',
+    word: 'Hijau',
+    category: 'warna',
+    level: 1,
+    syllables: ['Hi', 'jau'],
+    meaning: 'Warna segar seperti warna dedaun pokok dan rumput segar.',
+    exampleSentence: 'Padang bola yang hijau itu kelihatan sangat luas dan rata.',
+    image: '🟢',
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'jingga',
+    word: 'Jingga',
+    category: 'warna',
+    level: 2,
+    syllables: ['Jing', 'ga'],
+    meaning: 'Campuran warna merah dan kuning, menyerupai warna buah oren.',
+    exampleSentence: 'Cahaya jingga senja menghiasi kaki langit ketika matahari terbenam.',
+    image: '🟠',
+    synonym: ['Oren'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'ungu',
+    word: 'Ungu',
+    category: 'warna',
+    level: 2,
+    syllables: ['U', 'ngu'],
+    meaning: 'Warna hasil gabungan biru dan merah, menyerupai buah anggur manis.',
+    exampleSentence: 'Bunga orkid berwarna ungu mekar harum di tepi beranda.',
+    image: '🟣',
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'gemerlap',
+    word: 'Gemerlap',
+    category: 'warna',
+    level: 3,
+    syllables: ['Ge', 'mer', 'lap'],
+    meaning: 'Berkilau-kilau atau bersinar terang memancarkan cahaya indah.',
+    exampleSentence: 'Bintang-bintang gemerlap menghiasi dada langit malam yang gelap gelita.',
+    image: '✨',
+    synonym: ['Berkilauan', 'Bercahaya'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+
+  // 10. BENTUK & GEOMETRI
+  {
+    id: 'bulat',
+    word: 'Bulat',
+    category: 'bentuk',
+    level: 1,
+    syllables: ['Bu', 'lat'],
+    meaning: 'Bentuk bulat bundar seperti bola sepak atau bulan purnama.',
+    exampleSentence: 'Kanak-kanak menendang bola bulat di atas padang.',
+    image: '⚪',
+    synonym: ['Bulatan', 'Bundar'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'segi-tiga',
+    word: 'Segi Tiga',
+    category: 'bentuk',
+    level: 1,
+    syllables: ['Se', 'gi', 'Ti', 'ga'],
+    meaning: 'Bentuk yang mempunyai tiga sisi lurus dan tiga bucu penjuru.',
+    exampleSentence: 'Kuih karipap ibu berbentuk segi tiga yang kemas.',
+    image: '🔺',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'segi-empat',
+    word: 'Segi Empat',
+    category: 'bentuk',
+    level: 1,
+    syllables: ['Se', 'gi', 'Em', 'pat'],
+    meaning: 'Bentuk yang mempunyai empat sisi lurus seperti buku atau pintu.',
+    exampleSentence: 'Meja belajar saya berbentuk segi empat tepat.',
+    image: '🟦',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'bintang',
+    word: 'Bintang',
+    category: 'bentuk',
+    level: 1,
+    syllables: ['Bin', 'tang'],
+    meaning: 'Bentuk berbucu lima atau benda bercahaya di angkasa lepas.',
+    exampleSentence: 'Cikgu menampal pelekat bintang emas pada kertas lukisan saya.',
+    image: '⭐',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'simetri',
+    word: 'Simetri',
+    category: 'bentuk',
+    level: 3,
+    syllables: ['Si', 'me', 'tri'],
+    meaning: 'Persamaan saiz, bentuk, dan ukuran antara dua bahagian yang dibelah dua.',
+    exampleSentence: 'Corak pada sayap rama-rama adalah simetri dan sangat menakjubkan.',
+    image: '📐',
+    partOfSpeech: 'Kata Adjektif'
+  },
+
+  // 11. NOMBOR & KIRAAN
+  {
+    id: 'satu',
+    word: 'Satu',
+    category: 'nombor',
+    level: 1,
+    syllables: ['Sa', 'tu'],
+    meaning: 'Angka permulaan bernilai tunggal sebelum nombor dua.',
+    exampleSentence: 'Saya ada satu hidung di tengah muka.',
+    image: '1️⃣',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'dua',
+    word: 'Dua',
+    category: 'nombor',
+    level: 1,
+    syllables: ['Du', 'a'],
+    meaning: 'Angka selepas nombor satu yang menandakan sepasang.',
+    exampleSentence: 'Kita mempunyai dua mata untuk melihat keindahan ciptaan Tuhan.',
+    image: '2️⃣',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'tiga',
+    word: 'Tiga',
+    category: 'nombor',
+    level: 1,
+    syllables: ['Ti', 'ga'],
+    meaning: 'Angka ganjil selepas nombor dua.',
+    exampleSentence: 'Ada tiga anak kucing comel sedang berebut bola bulu.',
+    image: '3️⃣',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'sepuluh',
+    word: 'Sepuluh',
+    category: 'nombor',
+    level: 2,
+    syllables: ['Se', 'pu', 'luh'],
+    meaning: 'Nombor puluh pertama, bersamaan dengan jumlah jari di kedua-dua belah tangan.',
+    exampleSentence: 'Ali berjaya mengira nombor satu hingga sepuluh dengan lancar.',
+    image: '🔟',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'seratus',
+    word: 'Seratus',
+    category: 'nombor',
+    level: 2,
+    syllables: ['Se', 'ra', 'tus'],
+    meaning: 'Nombor bernilai seratus unit, angka 1 diikuti dua angka sifar.',
+    exampleSentence: 'Siti berbangga mendapat markah seratus peratus dalam ujian kosa kata.',
+    image: '💯',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'kiraan',
+    word: 'Kiraan',
+    category: 'nombor',
+    level: 3,
+    syllables: ['Ki', 'ra', 'an'],
+    meaning: 'Hasil atau perbuatan mengira angka dan hisab matematik.',
+    exampleSentence: 'Kiraan matematik yang tepat memerlukan ketelitian dan kesabaran.',
+    image: '🧮',
+    partOfSpeech: 'Kata Nama'
+  },
+
+  // 12. PAKAIAN & AKSESORI
+  {
+    id: 'baju-kurung',
+    word: 'Baju Kurung',
+    category: 'pakaian',
+    level: 2,
+    syllables: ['Ba', 'ju', 'Ku', 'rung'],
+    meaning: 'Pakaian tradisional wanita Melayu yang sopan, anggun, dan selesa.',
+    exampleSentence: 'Kakak memakai baju kurung sutera berwarna merah jambu sempena hari raya.',
+    image: '👗',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'kasut',
+    word: 'Kasut',
+    category: 'pakaian',
+    level: 1,
+    syllables: ['Ka', 'sut'],
+    meaning: 'Alas kaki berlapik getah untuk melindungi tapak kaki semasa berjalan.',
+    exampleSentence: 'Ahmad mengikat tali kasut sukannya dengan kemas sebelum berjoging.',
+    image: '👟',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'songkok',
+    word: 'Songkok',
+    category: 'pakaian',
+    level: 2,
+    syllables: ['Song', 'kok'],
+    meaning: 'Penutup kepala tradisional lelaki Melayu yang diperbuat daripada kain baldu hitam.',
+    exampleSentence: 'Ayah membetulkan kedudukan songkoknya sebelum melangkah ke masjid.',
+    image: '🎩',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'topi',
+    word: 'Topi',
+    category: 'pakaian',
+    level: 1,
+    syllables: ['To', 'pi'],
+    meaning: 'Penutup kepala bertepi untuk melindungi muka daripada terik cahaya matahari.',
+    exampleSentence: 'Adik memakai topi kuning comel ketika berkelah di tepi pantai.',
+    image: '🧢',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'anggun',
+    word: 'Anggun',
+    category: 'pakaian',
+    level: 3,
+    syllables: ['Ang', 'gun'],
+    meaning: 'Kelihatan sangat cantik, kemas, bergaya, dan penuh dengan kesopanan.',
+    exampleSentence: 'Ibu kelihatan sangat anggun mengenakan persalinan songket tradisional.',
+    image: '✨',
+    synonym: ['Menawan', 'Jelita'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+
+  // 13. MAINAN & HOBI
+  {
+    id: 'anak-patung',
+    word: 'Anak Patung',
+    category: 'mainan',
+    level: 1,
+    syllables: ['A', 'nak', 'Pa', 'tung'],
+    meaning: 'Permainan berbentuk manusia atau haiwan berbulu lembut.',
+    exampleSentence: 'Siti memeluk anak patung beruangnya sebelum tidur lena.',
+    image: '🧸',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'wau',
+    word: 'Wau',
+    category: 'mainan',
+    level: 2,
+    syllables: ['Wau'],
+    meaning: 'Layang-layang tradisional Melayu bermotif flora yang diterbangkan tinggi di udara.',
+    exampleSentence: 'Wau bulan melayang megah di langit negeri Kelantan ditiup angin petang.',
+    image: '🪁',
+    synonym: ['Layang-layang'],
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'gasing',
+    word: 'Gasing',
+    category: 'mainan',
+    level: 2,
+    syllables: ['Ga', 'sing'],
+    meaning: 'Permainan tradisional kayu berbentuk kon yang diputar menggunakan tali.',
+    exampleSentence: 'Pak Long memutar gasing uri dengan cekap sehingga berpusing ligat.',
+    image: '🪀',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'kreatif',
+    word: 'Kreatif',
+    category: 'mainan',
+    level: 3,
+    syllables: ['Kre', 'a', 'tif'],
+    meaning: 'Mempunyai kebolehan mencipta dan menghasilkan idea baharu yang menarik.',
+    exampleSentence: 'Kanak-kanak yang kreatif dapat membina istana megah menggunakan blok binaan pasir.',
+    image: '🎨',
+    synonym: ['Daya Cipta', 'Inovatif'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+
+  // 14. PEKERJAAN & CITA-CITA
+  {
+    id: 'doktor',
+    word: 'Doktor',
+    category: 'pekerjaan',
+    level: 1,
+    syllables: ['Dok', 'tor'],
+    meaning: 'Pakar perubatan yang merawat pesakit yang sakit di hospital atau klinik.',
+    exampleSentence: 'Doktor memeriksa degupan jantung pesakit menggunakan stetoskop.',
+    image: '🧑‍⚕️',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'bomba',
+    word: 'Bomba',
+    category: 'pekerjaan',
+    level: 1,
+    syllables: ['Bom', 'ba'],
+    meaning: 'Wira penyelamat yang bertugas memadamkan kebakaran dan menolong orang dalam bahaya.',
+    exampleSentence: 'Anggota bomba bertindak pantas menyelamatkan kucing yang terperangkap.',
+    image: '👨‍🚒',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'polis',
+    word: 'Polis',
+    category: 'pekerjaan',
+    level: 2,
+    syllables: ['Po', 'lis'],
+    meaning: 'Pasukan keselamatan negara yang menjaga keamanan dan menegakkan undang-undang.',
+    exampleSentence: 'Pegawai polis mengawal lalu lintas di persimpangan jalan dengan berdisiplin.',
+    image: '👮',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'angkasawan',
+    word: 'Angkasawan',
+    category: 'pekerjaan',
+    level: 2,
+    syllables: ['Ang', 'ka', 'sa', 'wan'],
+    meaning: 'Insan berani yang terlatih untuk menjelajah dan menjalankan kajian di angkasa lepas.',
+    exampleSentence: 'Cita-cita adik ingin menjadi seorang angkasawan yang meneroka planet Marikh.',
+    image: '🧑‍🚀',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'dedikasi',
+    word: 'Dedikasi',
+    category: 'pekerjaan',
+    level: 3,
+    syllables: ['De', 'di', 'ka', 'si'],
+    meaning: 'Pengorbanan masa dan tenaga dengan penuh keikhlasan demi melaksanakan amanah.',
+    exampleSentence: 'Doktor bertugas dengan penuh dedikasi demi memastikan pesakit kembali sihat sejahtera.',
+    image: '🏅',
+    synonym: ['Komitmen', 'Kesungguhan'],
+    partOfSpeech: 'Kata Nama'
+  },
+
+  // 15. PERASAAN & EMOSI
+  {
+    id: 'gembira',
+    word: 'Gembira',
+    category: 'perasaan',
+    level: 1,
+    syllables: ['Gem', 'bi', 'ra'],
+    meaning: 'Rasa girang, suka hati, dan riang apabila menerima perkara yang baik.',
+    exampleSentence: 'Wajah adik berseri-seri gembira menerima hadiah basikal baharu.',
+    image: '😊',
+    synonym: ['Riang', 'Sukacita'],
+    antonym: ['Sedih', 'Duka'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'berani',
+    word: 'Berani',
+    category: 'perasaan',
+    level: 2,
+    syllables: ['Be', 'ra', 'ni'],
+    meaning: 'Tidak gentar atau takut menghadapi cabaran dan kesulitan.',
+    exampleSentence: 'Murid yang berani sedia mengangkat tangan untuk menjawab soalan guru.',
+    image: '🦁',
+    synonym: ['Gagah', 'Perkasa'],
+    antonym: ['Penakut'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'sayang',
+    word: 'Sayang',
+    category: 'perasaan',
+    level: 1,
+    syllables: ['Sa', 'yang'],
+    meaning: 'Perasaan kasih mesra yang mendalam terhadap keluarga dan kawan-kawan.',
+    exampleSentence: 'Kami sekeluarga amat sayang akan haiwan peliharaan kami.',
+    image: '❤️',
+    synonym: ['Kasih', 'Cinta'],
+    antonym: ['Benci'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'tenang',
+    word: 'Tenang',
+    category: 'perasaan',
+    level: 2,
+    syllables: ['Te', 'nang'],
+    meaning: 'Keadaan hati yang damai, aman, tidak gelisah, dan terkawal.',
+    exampleSentence: 'Mendengar desiran ombak laut membuatkan jiwa terasa amat tenang.',
+    image: '🕊️',
+    synonym: ['Aman', 'Damai'],
+    antonym: ['Gelisah', 'Kacau'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'empati',
+    word: 'Empati',
+    category: 'perasaan',
+    level: 3,
+    syllables: ['Em', 'pa', 'ti'],
+    meaning: 'Kemampuan memahami dan turut merasakan apa yang dirasai oleh insan lain.',
+    exampleSentence: 'Sikap empati mendorong kita membantu rakan yang sedang berada dalam kesusahan.',
+    image: '🤝',
+    synonym: ['Prihatin', 'Belas Kasihan'],
+    partOfSpeech: 'Kata Nama'
+  },
+
+  // 16. AKTIVITI & SUKAN
+  {
+    id: 'berlari',
+    word: 'Berlari',
+    category: 'aktiviti',
+    level: 1,
+    syllables: ['Ber', 'la', 'ri'],
+    meaning: 'Menggerakkan kaki dengan amat pantas mendahului kelajuan berjalan.',
+    exampleSentence: 'Kanak-kanak berlari riang mengejar bola di padang hijau.',
+    image: '🏃',
+    synonym: ['Meluru', 'Menderu'],
+    partOfSpeech: 'Kata Kerja'
+  },
+  {
+    id: 'berenang',
+    word: 'Berenang',
+    category: 'aktiviti',
+    level: 2,
+    syllables: ['Be', 're', 'nang'],
+    meaning: 'Menggerakkan anggota badan meluncur di dalam air.',
+    exampleSentence: 'Amir rajin berenang setiap petang untuk menyihatkan stamina badannya.',
+    image: '🏊',
+    partOfSpeech: 'Kata Kerja'
+  },
+  {
+    id: 'melompat',
+    word: 'Melompat',
+    category: 'aktiviti',
+    level: 1,
+    syllables: ['Me', 'lom', 'pat'],
+    meaning: 'Melayangkan badan ke udara dengan tolakan kedua-dua belah kaki.',
+    exampleSentence: 'Katak melompat ke atas daun teratai di dalam kolam.',
+    image: '🦘',
+    partOfSpeech: 'Kata Kerja'
+  },
+  {
+    id: 'membaca',
+    word: 'Membaca',
+    category: 'aktiviti',
+    level: 1,
+    syllables: ['Mem', 'ba', 'ca'],
+    meaning: 'Melihat dan memahami perkataan bertulis untuk menimba ilmu.',
+    exampleSentence: 'Adik suka membaca buku cerita dongeng sebelum tidur.',
+    image: '📖',
+    partOfSpeech: 'Kata Kerja'
+  },
+  {
+    id: 'kecergasan',
+    word: 'Kecergasan',
+    category: 'aktiviti',
+    level: 3,
+    syllables: ['Ke', 'cer', 'ga', 'san'],
+    meaning: 'Tahap kekuatan, kesihatan dan ketahanan tubuh badan untuk melakukan aktiviti harian.',
+    exampleSentence: 'Senaman teratur setiap pagi dapat meningkatkan tahap kecergasan fizikal dan mental.',
+    image: '⚡',
+    synonym: ['Kesihatan', 'Ketahanan'],
+    partOfSpeech: 'Kata Nama'
+  },
+
+  // 17. CUACA & MUSIM
+  {
+    id: 'hujan',
+    word: 'Hujan',
+    category: 'cuaca',
+    level: 1,
+    syllables: ['Hu', 'jan'],
+    meaning: 'Titik-titik air yang turun dari awan ke bumi.',
+    exampleSentence: 'Titisan hujan membasahi bumi lalu menyegarkan pokok-pokok bunga.',
+    image: '🌧️',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'panas',
+    word: 'Panas',
+    category: 'cuaca',
+    level: 1,
+    syllables: ['Pa', 'nas'],
+    meaning: 'Keadaan suhu yang tinggi disinari cahaya matahari yang terik.',
+    exampleSentence: 'Cuaca hari ini agak panas, adik memakai topi dan minum banyak air.',
+    image: '☀️',
+    antonym: ['Sejuk'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'pelangi',
+    word: 'Pelangi',
+    category: 'cuaca',
+    level: 2,
+    syllables: ['Pe', 'la', 'ngi'],
+    meaning: 'Lengkungan tujuh warna indah yang muncul di langit selepas hujan reda.',
+    exampleSentence: 'Pelangi tujuh warna muncul tersergam indah di balik bukit.',
+    image: '🌈',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'angin',
+    word: 'Angin',
+    category: 'cuaca',
+    level: 1,
+    syllables: ['A', 'ngin'],
+    meaning: 'Udara semula jadi yang bergerak dan berhembus sepoi-sepoi.',
+    exampleSentence: 'Angin petang bertiup nyaman menggerakkan dedaun pokok kelapa.',
+    image: '💨',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'klimatologi',
+    word: 'Iklim',
+    category: 'cuaca',
+    level: 3,
+    syllables: ['Ik', 'lim'],
+    meaning: 'Keadaan cuaca purata sesebuah kawasan bagi suatu jangka masa yang panjang.',
+    exampleSentence: 'Malaysia mempunyai iklim khatulistiwa yang panas dan lembap sepanjang tahun.',
+    image: '🌐',
+    partOfSpeech: 'Kata Nama'
+  },
+
+  // 18. ANGGOTA BADAN
+  {
+    id: 'mata',
+    word: 'Mata',
+    category: 'badan',
+    level: 1,
+    syllables: ['Ma', 'ta'],
+    meaning: 'Organ penglihatan untuk melihat benda, warna, dan keindahan sekeliling.',
+    exampleSentence: 'Mata yang sihat membolehkan kita membaca buku dengan jelas.',
+    image: '👀',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'telinga',
+    word: 'Telinga',
+    category: 'badan',
+    level: 1,
+    syllables: ['Te', 'li', 'nga'],
+    meaning: 'Organ pendengaran untuk mendengar bunyi suara, muzik, dan kata nasihat.',
+    exampleSentence: 'Telinga mendengar kicauan burung yang merdu pada waktu pagi.',
+    image: '👂',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'tangan',
+    word: 'Tangan',
+    category: 'badan',
+    level: 1,
+    syllables: ['Ta', 'ngan'],
+    meaning: 'Anggota badan dari bahu hingga jari untuk memegang, menulis, dan melukis.',
+    exampleSentence: 'Cuci kedua-dua belah tangan menggunakan sabun sebelum makan.',
+    image: '🖐️',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'kaki',
+    word: 'Kaki',
+    category: 'badan',
+    level: 1,
+    syllables: ['Ka', 'ki'],
+    meaning: 'Anggota badan dari pangkal paha hingga tapak untuk berdiri dan melangkah.',
+    exampleSentence: 'Kaki melangkah cergas menuju ke pintu pagar sekolah.',
+    image: '🦶',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'jantung',
+    word: 'Jantung',
+    category: 'badan',
+    level: 2,
+    syllables: ['Jan', 'tung'],
+    meaning: 'Organ penting di dalam dada yang mengepam darah ke seluruh tubuh badan.',
+    exampleSentence: 'Bersenam setiap hari menjaga kesihatan otot jantung kita.',
+    image: '🫀',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'anatomi',
+    word: 'Postur',
+    category: 'badan',
+    level: 3,
+    syllables: ['Pos', 'tur'],
+    meaning: 'Bentuk kedudukan dan susunan tubuh badan semasa duduk, berdiri, atau berjalan.',
+    exampleSentence: 'Duduk dengan postur tegak dapat menjaga kesihatan tulang belakang kita.',
+    image: '🧍',
+    partOfSpeech: 'Kata Nama'
+  },
+
+  // 19. TEMPAT & BANDAR
+  {
+    id: 'taman',
+    word: 'Taman',
+    category: 'tempat',
+    level: 1,
+    syllables: ['Ta', 'man'],
+    meaning: 'Kawasan lapang yang dihiasi bunga dan alat permainan untuk kanak-kanak beriadah.',
+    exampleSentence: 'Kami bermain buaian dan papan gelongsor di taman rekreasi.',
+    image: '🛝',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'pasar',
+    word: 'Pasar',
+    category: 'tempat',
+    level: 2,
+    syllables: ['Pa', 'sar'],
+    meaning: 'Tempat orang ramai berniaga dan membeli sayur, buah, ikan, dan pelbagai barangan.',
+    exampleSentence: 'Ibu membeli sayur-sayuran segar dan ikan kembung di pasar pagi.',
+    image: '🛒',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'pantai',
+    word: 'Pantai',
+    category: 'tempat',
+    level: 1,
+    syllables: ['Pan', 'tai'],
+    meaning: 'Kawasan pasir landai yang membatasi daratan dengan air laut biru.',
+    exampleSentence: 'Kanak-kanak membina istana pasir putih di tepi pantai Port Dickson.',
+    image: '🏖️',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'muzium',
+    word: 'Muzium',
+    category: 'tempat',
+    level: 2,
+    syllables: ['Mu', 'zi', 'um'],
+    meaning: 'Bangunan khazanah tempat menyimpan artifak dan sejarah purba.',
+    exampleSentence: 'Rombongan sekolah kami melawat Muzium Negara untuk mempelajari sejarah tanah air.',
+    image: '🏛️',
+    partOfSpeech: 'Kata Nama'
+  },
+  {
+    id: 'metropolitan',
+    word: 'Metropolis',
+    category: 'tempat',
+    level: 3,
+    syllables: ['Me', 'tro', 'po', 'lis'],
+    meaning: 'Bandar raya besar yang menjadi tumpuan ekonomi, perdagangan, dan pentadbiran moden.',
+    exampleSentence: 'Kuala Lumpur ialah sebuah metropolis moden yang terkenal dengan Menara Berkembar Petronas.',
+    image: '🌆',
+    synonym: ['Bandar Raya Megah'],
+    partOfSpeech: 'Kata Nama'
+  },
+
+  // 20. PERKATAAN HARIAN & NILAI MURNI
+  {
+    id: 'terima-kasih',
+    word: 'Terima Kasih',
+    category: 'harian',
+    level: 1,
+    syllables: ['Te', 'ri', 'ma', 'Ka', 'sih'],
+    meaning: 'Ungkapan berbudi bahasa untuk menyatakan penghargaan atas pertolongan orang.',
+    exampleSentence: 'Ucapkanlah terima kasih dengan senyuman ikhlas apabila menerima bantuan.',
+    image: '🙏',
+    partOfSpeech: 'Kata Tugas'
+  },
+  {
+    id: 'rajin',
+    word: 'Rajin',
+    category: 'harian',
+    level: 2,
+    syllables: ['Ra', 'jin'],
+    meaning: 'Sentiasa berusaha bersungguh-sungguh dan tidak suka membuang masa.',
+    exampleSentence: 'Murid yang rajin berusaha pasti akan menuai kejayaan.',
+    image: '🐝',
+    synonym: ['Tekun', 'Gigih'],
+    antonym: ['Malas'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'gigih',
+    word: 'Gigih',
+    category: 'harian',
+    level: 3,
+    syllables: ['Gi', 'gih'],
+    meaning: 'Bersemangat kental dan beriltizam tinggi tanpa mudah berputus asa.',
+    exampleSentence: 'Ali gigih mengulang kaji pelajaran untuk mencapai cita-citanya menjadi saintis.',
+    image: '💪',
+    synonym: ['Tabah', 'Cekal'],
+    antonym: ['Patah Semangat'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'jujur',
+    word: 'Jujur',
+    category: 'harian',
+    level: 2,
+    syllables: ['Ju', 'jur'],
+    meaning: 'Bercakap benar, amanah, dan tidak memperdaya atau berbohong.',
+    exampleSentence: 'Kanak-kanak yang jujur sentiasa disayangi oleh ibu bapa dan rakan-rakan.',
+    image: '💎',
+    synonym: ['Amanah', 'Tulus'],
+    antonym: ['Khianat', 'Menipu'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'sopan',
+    word: 'Sopan',
+    category: 'harian',
+    level: 1,
+    syllables: ['So', 'pan'],
+    meaning: 'Berbudi pekerti mulia, lemah lembut dalam tutur kata, dan menghormati orang lain.',
+    exampleSentence: 'Adik bersalam dengan sopan sambil menundukkan kepala tanda hormat kepada datuk.',
+    image: '🌸',
+    synonym: ['Beradab', 'Santun'],
+    antonym: ['Kasar'],
+    partOfSpeech: 'Kata Adjektif'
+  },
+  {
+    id: 'integriti',
+    word: 'Integriti',
+    category: 'harian',
+    level: 3,
+    syllables: ['In', 'te', 'gri', 'ti'],
+    meaning: 'Sifat kejujuran, ketelusan moral yang utuh dan keutuhan peribadi yang terpuji.',
+    exampleSentence: 'Amalan integriti sejak kecil membentuk sahsiah pemimpin cemerlang di masa hadapan.',
+    image: '🛡️',
+    synonym: ['Kejujuran', 'Amanah'],
+    partOfSpeech: 'Kata Nama'
+  }
+];
